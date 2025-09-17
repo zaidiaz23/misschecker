@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <link rel="icon" type="image/png" sizes="24x24" href="Assets/heart.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fuente para títulos -->
+     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Libertinus+Serif+Display&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <title>MissChecker</title>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <a href="index.html" class="logo">
+          <img src="Assets/MissChecker.png" alt="MissChecker">
+          <span class="logo-text">MissChecker</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="https://zairediaz.netlify.app/" target="_blank">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <h1>How reliable is your skincare routine?</h1>
+        <p>
+          Get instant, evidence-based information about the safety
+          of ingredients in your personal care products and cosmetics.
+          Our AI-powered system analyzes medical literature to provide
+          you with reliable safety assessments.
+        </p>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="feature-card">
+            <div class="feature-card-image">
+              <img src="Assets/Evidence.png" alt="Evidence">
+            </div>
+            <h3>Evidence-Based Analysis</h3>
+            <p>
+              Our system references
+              peer-reviewed medical literature
+              and regulatory databases to provide
+              accurate safety information.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-image">
+            <img src="Assets/Reliable.png" alt="Reliable">
+            </div>
+            <h3>Reliable information</h3>
+            <p>
+              Access the most current safety data and
+              regulatory updates to make informed
+              decisions about products.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-image">
+              <img src="Assets/Safety.png" alt="Safety">
+            </div>
+            <h3>Safety First</h3>
+            <p>
+              Get recommendations based on specific health concerns.
+            </p>
+          </div>
+        </div>
+
+        <div class="chatbot-container">
+          <div class="chatbot-header">
+          Ask about ingredient safety
+          </div>
+
+          <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+              Hello! I'm here to help you understand the safety
+              of ingredients in personal care products and cosmetics.
+              You can ask me about specific ingredients,
+              or general safety concerns.
+            </div>
+          </div>
+
+          <div class="recommendations">
+            <div class="recommendations-label">Try searching:</div>
+            <div class="recommendation-tags" id="recommendationTags">
+              <span class="recommendation-tag"
+                >Are parabens linked to cancer?</span
+              >
+              <span class="recommendation-tag"
+                >What cosmetic chemicals cause organ damage?</span
+              >
+              <span class="recommendation-tag"
+                >Is fragrance in cosmetics dangerous?</span
+              >
+              <span class="recommendation-tag"
+                >How do I choose safer makeup?</span
+              >
+              <span class="recommendation-tag"
+                >Are tampons and pads safe?</span
+              >
+              <span class="recommendation-tag"
+                >What are the top 5 cosmetic safety tips?</span
+              >
+            </div>
+          </div>
+
+          <div class="chat-input-container">
+            <div class="input-wrapper">
+              <textarea
+                class="chat-textarea"
+                id="chatInput"
+                placeholder="Ask about any ingredient safety concern..."
+                rows="1"
+              ></textarea>
+              <button class="send-button" id="sendButton" type="button">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="error-alert" id="errorAlert"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 MissChecker. Information provided for
+          educational purposes only.
+          Consult healthcare professionals
+          for medical advice.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
