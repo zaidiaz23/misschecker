@@ -3,7 +3,7 @@
 > AI-powered chatbot that analyzes cosmetic ingredient safety using evidence-based research and medical literature.
 
 ![Status](https://img.shields.io/badge/Status-Production-green)
-![AWS](https://img.shields.io/badge/AWS-Bedrock%20%7C%20Lambda%20%7C%20S3-orange)
+![AWS](https://img.shields.io/badge/AWS-Bedrock%20%7C%20Lambda%20%7C%20S3%20%7C%20API%20Gateway-orange)
 ![Frontend](https://img.shields.io/badge/Frontend-Vanilla%20JS%20%7C%20HTML%20%7C%20CSS-blue)
 ![Deployment](https://img.shields.io/badge/Deploy-Netlify-00C7B7)
 
