@@ -179,36 +179,47 @@ class MissCheckerChatbot {
       return text;
     }
 
-    // Clean up the text formatting
-    let formatted = text
-      // Handle escaped quotes
+    // Clean up formatting
+    let cleaned = text
       .replace(/\\"/g, '"')
-      // Convert double line breaks to paragraph breaks
       .replace(/\n\n/g, "</p><p>")
-      // Convert single line breaks to <br>
       .replace(/\n/g, "<br>")
-      // Handle bullet points with dashes
-      .replace(/^- /gm, "• ")
-      // Handle bullet points after line breaks
-      .replace(/<br>- /g, "<br>• ");
+      .replace(/^- /gm, "• ");
 
-    // Wrap in paragraph tags if there are paragraph breaks
-    if (formatted.includes("</p><p>")) {
-      formatted = "<p>" + formatted + "</p>";
+    // Simple character limit with sentence awareness
+    if (cleaned.length > 368) {
+      let truncated = cleaned.substring(0, 368);
+
+      // Try to end at last sentence
+      const lastPeriod = truncated.lastIndexOf(".");
+      if (lastPeriod > 250) {
+        // If period is reasonably close to end
+        truncated = truncated.substring(0, lastPeriod + 1);
+      } else {
+        // End at last word
+        const lastSpace = truncated.lastIndexOf(" ");
+        truncated = truncated.substring(0, lastSpace) + "...";
+      }
+
+      cleaned = truncated;
     }
 
-    // Highlight important safety terms
-    formatted = formatted
+    // Add paragraph tags and highlighting
+    if (cleaned.includes("</p><p>")) {
+      cleaned = "<p>" + cleaned + "</p>";
+    }
+
+    cleaned = cleaned
       .replace(
-        /\b(cancer|toxic|harmful|dangerous|avoid|banned)\b/gi,
+        /\b(cancer|toxic|harmful|dangerous|avoid)\b/gi,
         '<strong style="color: #e91e63;">$1</strong>'
       )
       .replace(
-        /\b(safe|safer|recommended|choose|certified)\b/gi,
+        /\b(safe|safer|recommended|choose)\b/gi,
         '<strong style="color: #6ab04c;">$1</strong>'
       );
 
-    return formatted;
+    return cleaned;
   }
 
   setLoadingState(loading) {
