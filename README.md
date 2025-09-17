@@ -27,7 +27,7 @@ Response ← Website ← Netlify Function ← API Gateway ← Lambda ← Titan T
 
 ```
 
-<img width="1421" height="640" alt="Proyecto (2)" src="https://github.com/user-attachments/assets/9aff1df7-04df-424e-ae4e-c2dc41b968ab" />
+<img width="1289" height="628" alt="Proyecto (2)" src="https://github.com/user-attachments/assets/e5db8373-0b5d-4e14-973f-17c5acee1cf1" />
 
 
 ### Tech Stack
