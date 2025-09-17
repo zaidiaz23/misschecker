@@ -105,8 +105,7 @@ export const handler = async (event, context) => {
         'X-API-Key': API_KEY,
       },
       body: JSON.stringify({
-        message: requestBody.message,
-        timestamp: new Date().toISOString()
+        message: requestBody.message
       })
     });
 
