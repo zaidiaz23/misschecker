@@ -1,7 +1,6 @@
 // netlify/functions/chat.js
-import fetch from 'node-fetch';
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
@@ -33,6 +32,11 @@ exports.handler = async (event, context) => {
     const API_URL = process.env.AWS_API_GATEWAY_URL;
     const API_KEY = process.env.AWS_API_KEY;
 
+    console.log('Environment check:', {
+      hasApiUrl: !!API_URL,
+      hasApiKey: !!API_KEY
+    });
+
     if (!API_URL || !API_KEY) {
       console.error('Missing environment variables');
       return {
@@ -50,6 +54,7 @@ exports.handler = async (event, context) => {
     try {
       requestBody = JSON.parse(event.body);
     } catch (error) {
+      console.error('JSON parse error:', error);
       return {
         statusCode: 400,
         headers: {
@@ -85,7 +90,7 @@ exports.handler = async (event, context) => {
 
     console.log('Calling AWS API Gateway:', API_URL);
 
-    // Call your AWS API Gateway
+    // Use built-in fetch (Node.js 18+)
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
